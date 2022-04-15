@@ -16,7 +16,7 @@ const Navbar = ({totalItems}) => {
         <Typography className={classes.title} color='inherit' component={Link} to='/'>
             <img src={image.logo} alt='commercejs' height='25px' className={classes.images} />
         </Typography>
-        <div className={classes.grow} />
+       <div className={classes.grow} /> 
         {location.pathname  === '/' && (
          <IconButton  aria-label='show cart items' color='inherit'  component={Link} to='/cart'>
          <Badge badgeContent={totalItems} color='secondary' >
