@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CartItems from './cartItems/CartItems';
 import useStyles from './style';
 
-const Cart = ({cart}) => {
+const Cart = ({cart, onUpdateCart, onAddToCart, onRemoveCart, onEmptyCart }) => {
     console.log(cart.line_items);
     const Cart = cart.line_items;
     const isEmpty = !cart.line_items?.length;
@@ -13,12 +13,12 @@ const Cart = ({cart}) => {
 const EmptyCart = () => (
     <Typography variant='h3' >
         You have no item in your cart 
-        {/* <Link to='/'> */}
+        <Link to='/'>
             <Typography variant='h6'
             color='GrayText' >
               Add Something
             </Typography>
-        {/* </Link> */}
+        </Link>
     </Typography>
 );
 if(!cart.line_items) return 'loading .....';
@@ -30,7 +30,7 @@ const FilledCart = () => (
       
         (
          <Grid item xs={12} sm={4} key={item.id}>       
-              <CartItems item={item}/> 
+              <CartItems item={item} onUpdateCart={onUpdateCart} onAddCart={onAddToCart} onRemoveCart={onRemoveCart}/> 
          </Grid>
         ))}
     </Grid>
@@ -40,7 +40,7 @@ const FilledCart = () => (
         Subtotal : {cart.subtotal.formatted_with_symbol}
         </Typography>
         <div>
-        <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" >Empty cart</Button>
+        <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={() => onEmptyCart()} >Empty cart</Button>
           <Button className={classes.checkoutButton}  size="large" type="button" variant="contained" color="primary">Checkout</Button>
         </div>
     </div> 
