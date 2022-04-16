@@ -53,7 +53,7 @@ function App() {
      <Routes>
      <Route path='/' element={ <Products products={products} onAddToCart={handleAddToCart}/>} />
        <Route path='/cart' element={ <Cart cart={cart} onUpdateCart={handleUpdateCart} onRemoveCart={handleRemoveFromCart} onAddToCart={handleAddToCart} onEmptyCart={handleEmptyCart}/>} />
-       <Route path='/checkout' element={<Checkout/>} />
+       <Route path='/checkout' element={<Checkout cart={cart}/>} />
      </Routes>
     </div>
     </Router>
