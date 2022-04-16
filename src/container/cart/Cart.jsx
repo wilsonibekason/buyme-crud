@@ -30,7 +30,7 @@ const FilledCart = () => (
       
         (
          <Grid item xs={12} sm={4} key={item.id}>       
-              <CartItems item={item} onUpdateCart={onUpdateCart} onAddCart={onAddToCart} onRemoveCart={onRemoveCart}/> 
+              <CartItems item={item} onUpdateCartQty={onUpdateCart} onAddCart={onAddToCart} onRemoveFromCart={onRemoveCart}/> 
          </Grid>
         ))}
     </Grid>
@@ -41,7 +41,7 @@ const FilledCart = () => (
         </Typography>
         <div>
         <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={() => onEmptyCart()} >Empty cart</Button>
-          <Button className={classes.checkoutButton}  size="large" type="button" variant="contained" color="primary">Checkout</Button>
+          <Button className={classes.checkoutButton}  size="large" type="button" variant="contained" color="primary" component={Link} to='/checkout'>Checkout</Button>
         </div>
     </div> 
     </>
